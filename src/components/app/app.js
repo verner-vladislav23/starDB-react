@@ -10,7 +10,19 @@ import './app.css';
 
 export default class App extends Component {
 
+
+  state = { 
+    selectedPerson: 6
+  }
+
+  onPersonSelected = (id) => {
+    this.setState({
+      selectedPerson: id
+    })
+  }
+
   render() {
+    console.log(this.state.selectedPerson)
     return (
       <div>
       <Header />
@@ -18,10 +30,10 @@ export default class App extends Component {
 
       <div className="row mb2">
         <div className="col-md-6">
-          <ItemList />
+          <ItemList onItemSelected={this.onPersonSelected}/>
         </div>
         <div className="col-md-6">
-          <PersonDetails />
+          <PersonDetails personId={this.state.selectedPerson}/>
         </div>
       </div>
     </div>
