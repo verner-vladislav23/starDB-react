@@ -15,8 +15,13 @@ export default class PersonDetails extends Component {
     this.updatePerson()
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.personId !== prevProps.personId) {
+      this.updatePerson()
+    }
+  }
+  
   updatePerson() {
- 
     const { personId } = this.props
 
     if (!personId) {
@@ -29,7 +34,6 @@ export default class PersonDetails extends Component {
         person
       })
     })
-
 
   }
 
@@ -44,7 +48,7 @@ export default class PersonDetails extends Component {
 
     return (
       <div className="person-details card">
-        <img className="person-image" alt="person-logo"
+        <img className="person-image"
           src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`} />
 
         <div className="card-body">

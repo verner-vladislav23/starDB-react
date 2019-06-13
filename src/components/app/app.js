@@ -12,7 +12,7 @@ export default class App extends Component {
 
 
   state = { 
-    selectedPerson: 6
+    selectedPerson: null
   }
 
   onPersonSelected = (id) => {
@@ -22,7 +22,6 @@ export default class App extends Component {
   }
 
   render() {
-    console.log(this.state.selectedPerson)
     return (
       <div>
       <Header />
